@@ -102,12 +102,25 @@ export async function analyzeVibe(
     };
   });
 
+  const FULL_SCHEMA = {
+    type: Type.OBJECT,
+    properties: {
+      analysis: VIBE_ANALYSIS_SCHEMA,
+      responseText: {
+        type: Type.STRING,
+        description: "Your chat response to the user's latest message"
+      }
+    },
+    required: ["analysis", "responseText"]
+  };
+
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
     contents,
     config: {
       systemInstruction,
       responseMimeType: "application/json",
+      responseSchema: FULL_SCHEMA,
       temperature: 0.7,
       topK: 40,
       topP: 0.95,
