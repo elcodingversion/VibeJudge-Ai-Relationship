@@ -134,7 +134,7 @@ export async function analyzeVibe(
     if (e.message?.includes('429') || e.status === 429 || e.message?.includes('quota')) {
       throw new Error("Wah, kuota AI gratisannya lagi limit karena terlalu banyak yang nge-judge! Tunggu 1 menit ya baru coba lagi.");
     }
-    throw new Error("Gagal terhubung ke AI Google. Pastikan koneksi internet lancar dan API Key valid.");
+    throw new Error(`Gagal terhubung ke AI Google. Error: ${e.message || "Unknown error"}`);
   }
 
   const text = response.text;
