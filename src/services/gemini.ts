@@ -114,18 +114,28 @@ export async function analyzeVibe(
     required: ["analysis", "responseText"]
   };
 
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-    contents,
-    config: {
-      systemInstruction,
-      responseMimeType: "application/json",
-      responseSchema: FULL_SCHEMA,
-      temperature: 0.7,
-      topK: 40,
-      topP: 0.95,
-    },
-  });
+  let response;
+  try {
+    response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents,
+      config: {
+        systemInstruction,
+        responseMimeType: "application/json",
+        responseSchema: FULL_SCHEMA,
+        temperature: 0.7,
+        topK: 40,
+        topP: 0.95,
+      },
+    });
+  } catch (e: any) {
+    console.error("Gemini API Error:", e);
+    // Cek apakah errornya adalah 429 (Rate Limit / Quota Exceeded)
+    if (e.message?.includes('429') || e.status === 429 || e.message?.includes('quota')) {
+      throw new Error("Wah, kuota AI gratisannya lagi limit karena terlalu banyak yang nge-judge! Tunggu 1 menit ya baru coba lagi.");
+    }
+    throw new Error("Gagal terhubung ke AI Google. Pastikan koneksi internet lancar dan API Key valid.");
+  }
 
   const text = response.text;
   if (!text) throw new Error("AI tidak memberikan respon. Mungkin koneksi lagi down.");
