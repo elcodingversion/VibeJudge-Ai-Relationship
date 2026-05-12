@@ -269,9 +269,9 @@ export function VibeResult({ analysis, onClose }: VibeResultProps) {
         id="action-plan-section"
         className={cn(
         "skeuo-card p-6 sm:p-10 border-2 transition-all relative overflow-hidden group",
-        isRed ? "border-rose-500/30 bg-gradient-to-br from-rose-50/50 to-white dark:bg-slate-900 shadow-2xl shadow-rose-500/5" : 
-        isYellow ? "border-amber-500/30 bg-gradient-to-br from-amber-50/50 to-white dark:bg-slate-900 shadow-2xl shadow-amber-500/5" : 
-        "border-emerald-500/30 bg-gradient-to-br from-emerald-50/50 to-white dark:bg-slate-900 shadow-2xl shadow-emerald-500/5"
+        isRed ? "border-rose-500/30 bg-white dark:bg-slate-900 shadow-2xl shadow-rose-500/5" : 
+        isYellow ? "border-amber-500/30 bg-white dark:bg-slate-900 shadow-2xl shadow-amber-500/5" : 
+        "border-emerald-500/30 bg-white dark:bg-slate-900 shadow-2xl shadow-emerald-500/5"
       )}>
         <div className="absolute -top-12 -right-12 w-48 h-48 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity rotate-12">
           {config.icon}
