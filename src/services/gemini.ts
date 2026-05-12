@@ -2,9 +2,10 @@ import { GoogleGenAI, Type, Modality } from "@google/genai";
 import { VibeAnalysis } from "../types";
 
 const getAI = () => {
-  const apiKey = "AIzaSyAauPC5Pt32ShHEWqKpNHGKtPUElc-ly44";
+  // Use environment variable for the API key to prevent it from leaking to GitHub
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
   if (!apiKey) {
-    throw new Error("API Key Gemini belum diset. Cek panel Settings di AI Studio.");
+    throw new Error("API Key Gemini belum diset. Pastikan sudah menambahkan VITE_GEMINI_API_KEY di file .env atau Vercel Environment Variables.");
   }
   return new GoogleGenAI({ apiKey });
 };
