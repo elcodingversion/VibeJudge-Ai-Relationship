@@ -307,9 +307,11 @@ export function VibeResult({ analysis, onClose }: VibeResultProps) {
         </div>
         
         <div className="prose prose-slate dark:prose-invert prose-base sm:prose-lg max-w-none 
-          prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-p:font-medium prose-p:leading-relaxed
-          prose-li:text-slate-700 dark:prose-li:text-slate-300 prose-li:font-medium
-          prose-strong:text-rose-500 dark:prose-strong:text-rose-400
+          text-slate-800 dark:text-slate-200
+          prose-headings:text-slate-900 dark:prose-headings:text-white
+          prose-p:text-slate-800 dark:prose-p:text-slate-300 prose-p:font-medium prose-p:leading-relaxed
+          prose-li:text-slate-800 dark:prose-li:text-slate-300 prose-li:font-medium
+          prose-strong:text-rose-600 dark:prose-strong:text-rose-400
           prose-ol:space-y-4 prose-ul:space-y-4
           selection:bg-rose-500/20">
           <ReactMarkdown>{analysis.actionPlan}</ReactMarkdown>
