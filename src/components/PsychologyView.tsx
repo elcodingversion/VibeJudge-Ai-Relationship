@@ -548,7 +548,7 @@ export function PsychologyView({ onClose }: PsychologyViewProps) {
                         <div className="grid grid-cols-2 gap-4">
                           <div className="p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl">
                             <div className="text-slate-400 text-[8px] font-black uppercase mb-1">Total Jawab</div>
-                            <div className="text-xl font-black">{totalAnswered}</div>
+                            <div className="text-xl font-black text-slate-900 dark:text-white">{totalAnswered}</div>
                           </div>
                           <div className="p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl">
                             <div className="text-slate-400 text-[8px] font-black uppercase mb-1">Max Streak</div>
@@ -617,7 +617,7 @@ export function PsychologyView({ onClose }: PsychologyViewProps) {
                                     disabled={isAnswered}
                                     className={cn(
                                       "p-6 rounded-[2rem] border-2 text-left transition-all duration-300 flex items-center justify-between group relative overflow-hidden",
-                                      !isAnswered && "bg-white dark:bg-slate-900 border-slate-100 dark:border-white/5 hover:border-rose-400 dark:hover:border-rose-400 hover:scale-[1.02] active:scale-[0.98]",
+                                      !isAnswered && "bg-white dark:bg-slate-900 border-slate-200 dark:border-white/5 hover:border-rose-400 dark:hover:border-rose-400 hover:scale-[1.02] active:scale-[0.98] text-slate-800 dark:text-slate-200",
                                       isAnswered && isCorrect && "bg-emerald-50 dark:bg-emerald-950/20 border-emerald-500 text-emerald-700 dark:text-emerald-400",
                                       isAnswered && isSelected && !isCorrect && "bg-rose-50 dark:bg-rose-950/20 border-rose-500 text-rose-700 dark:text-rose-400",
                                       isAnswered && !isSelected && !isCorrect && "opacity-50 grayscale"
